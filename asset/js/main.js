@@ -17,8 +17,8 @@ strumenti
 */
 
 // dichiarazione variabili
-const btnAdd = document.querySelector('#add')
-const ulEl = document.querySelector('ul')
+const btnAdd = document.querySelector('#add');
+const ulEl = document.querySelector('ul');
 
 
 // creare una lista della spesa 
@@ -32,11 +32,27 @@ const shoppingList = [
 // creiamo un ciclo while
 let s = 0
 while (s <  shoppingList.length) {
-    itemsList = shoppingList[s]
-    const liElMarkup = `<li>${itemsList}</li>`
-    console.log(itemsList)
-    ulEl.insertAdjacentHTML('beforeend', liElMarkup)
-    s++
+    itemsList = shoppingList[s];
+    let liElMarkup = `<li>${itemsList}</li>`;
+    console.log(itemsList);
+    ulEl.insertAdjacentHTML('beforeend', liElMarkup);
+    s++;
 
 }
 
+
+btnAdd.addEventListener('click', function(){
+    console.log('aggiungi');
+    
+    let aggiungi = true
+    while (aggiungi) {
+        const newItems=(prompt('aggiungi nuovo elemento'));
+        shoppingList.push(newItems)
+        let newMarkup = `<li>${newItems}</li>`
+        ulEl.insertAdjacentHTML('beforeend', newMarkup)
+
+        aggiungi = confirm('vuoi aggiungere altre cose?')
+    }
+
+    console.log(shoppingList)
+})
