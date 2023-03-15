@@ -46,9 +46,9 @@ btnAdd.addEventListener('click', function(){
     
     let aggiungi = true
     while (aggiungi) {
-        const newItems=(prompt('aggiungi nuovo elemento'));
-        shoppingList.push(newItems)
-        let newMarkup = `<li>${newItems}</li>`
+        const newItem=prompt('aggiungi nuovo elemento');
+        shoppingList.push(newItem);
+        let newMarkup = `<li>${newItem}</li>`;
         ulEl.insertAdjacentHTML('beforeend', newMarkup)
 
         aggiungi = confirm('vuoi aggiungere altre cose?')
